@@ -13,6 +13,7 @@ services:
     image: mysql:5.7
     volumes:
       - /var/lib/mysql
+      - ./dump:/docker-entrypoint-initdb.d
     environment:
       - MYSQL_ROOT_PASSWORD=kabum
       - MYSQL_DATABASE=kabum
@@ -22,6 +23,6 @@ services:
     links:
       - db:db
     ports:
-      - "8081:81"
+      - "8082:80"
     environment:
       - MYSQL_ROOT_PASSWORD=kabum
