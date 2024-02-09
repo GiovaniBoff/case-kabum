@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    volumes:
+      - ./app:/var/www/html/
+    ports:
+      - "8080:80"
+    links:
+      - db
+  db:
+    image: mysql:5.7
+    volumes:
+      - /var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=kabum
+      - MYSQL_DATABASE=kabum
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - db:db
+    ports:
+      - "8081:81"
+    environment:
+      - MYSQL_ROOT_PASSWORD=kabum
