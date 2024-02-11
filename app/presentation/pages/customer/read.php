@@ -17,32 +17,32 @@ require_once '../partials/header.php';
 			</thead>
 			<tbody>
 				<tr>
-					<?php foreach ($users as $user): ?>
+					<?php foreach ($customers as $customer): ?>
 
 						<td>
-							<?= $user->getId() ?>
+							<?= $customer->getId() ?>
 						</td>
 						<td>
-							<?= $user->getName() ?>
+							<?= $customer->getName() ?>
 						</td>
 						<td>
-							<?= $user->getDateOfBirth() ?>
+							<?= $customer->getDateOfBirth() ?>
 						</td>
 						<td>
-							<?= $user->getCpf() ?>
+							<?= $customer->getCpf() ?>
 						</td>
 						<td>
-							<?= $user->getRg() ?>
+							<?= $customer->getRg() ?>
 						</td>
 						<td>
-							<?= $user->getPhone() ?>
+							<?= $customer->getPhone() ?>
 						</td>
 						<td class="text-center">
 							<button class="btn  btn-warning btn-sm" data-toggle="modal"
-								data-target="#editar><?= $user->getId() ?>">
+								data-target="#editar><?= $customer->getId() ?>">
 								Editar
 							</button>
-							<a href="/presentation/controller/UserController.php?del=<?= $user->getId() ?>">
+							<a href="/presentation/controller/CustomerController.php?del=<?= $customer->getId() ?>">
 								<button class="btn  btn-danger btn-sm" type="button">Excluir</button>
 							</a>
 						</td>

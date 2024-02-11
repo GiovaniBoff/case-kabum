@@ -1,21 +1,22 @@
 <?php
-// use UserRepository;
+// require_once 'app/data/repository/UserRepository.php';
 
-class UpdateUser
+class CreateCustomer
 {
 
-    public function update($input)
+
+    public function create($input)
     {
-        $repository = new UserRepository;
-        $user = new User;
+        $repository = new CustomerRepository;
+        $user = new Customer;
 
         $user->setName($input["name"]);
         $user->setDateOfBirth($input["date_of_birth"]);
         $user->setCpf($input["cpf"]);
         $user->setRg($input["rg"]);
         $user->setPhone($input["phone"]);
-        $user->setId($input["id"]);
 
-        return $repository->update($user);
+        return $repository->create($user);
     }
+
 }

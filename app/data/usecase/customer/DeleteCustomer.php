@@ -1,12 +1,12 @@
 <?php
 // use UserRepository;
 
-class DeleteUser
+class DeleteCustomer
 {
     public function delete($userId)
     {
-        $repository = new UserRepository;
-        $user = new User;
+        $repository = new CustomerRepository;
+        $user = new Customer;
         $user->setId($userId);
 
         return $repository->delete($user);

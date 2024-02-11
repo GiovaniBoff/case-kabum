@@ -4,11 +4,11 @@ require_once '../partials/header.php';
 <nav class="navbar navbar-light bg-light menu">
     <div class="container">
         <a class="navbar-brand" href="#">
-            CRUD PHP POO
+            CRUD
         </a>
     </div>
 </nav>
-<form action="/presentation/controller/UserController.php" method="POST">
+<form action="/presentation/controller/CustomerController.php" method="POST">
     <div class="row">
         <div class="col-md-3">
             <label>Nome</label>
@@ -30,13 +30,6 @@ require_once '../partials/header.php';
             <label>Telefone</label>
             <input type="text" name="phone" value="" class="form-control" require />
         </div>
-        <!-- <div class="col-md-2">
-                    <label>Sexo</label>
-                    <select name="sexo" class="form-control">
-                        <option value="M">Masculino</option>
-                        <option value="F">Feminino</option>
-                    </select>
-                </div> -->
         <div class="col-md-2">
             <br>
             <button class="btn btn-primary" type="submit" name="cadastrar">Cadastrar</button>

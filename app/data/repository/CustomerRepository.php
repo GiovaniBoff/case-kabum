@@ -1,19 +1,19 @@
 <?php
-class UserRepository
+class CustomerRepository
 {
-    public function create(User $user)
+    public function create(Customer $customer)
     {
         try {
-            $sql = "INSERT INTO user (name,date_of_birth,cpf,rg,phone) 
+            $sql = "INSERT INTO customer (name,date_of_birth,cpf,rg,phone) 
                     VALUES (:name,:date_of_birth,:cpf,:rg,:phone)";
 
             $p_sql = DatabaseConnection::getInstance()->prepare($sql);
 
-            $p_sql->bindValue(":name", $user->getName());
-            $p_sql->bindValue(":date_of_birth", $user->getDateOfBirth());
-            $p_sql->bindValue(":cpf", $user->getCpf());
-            $p_sql->bindValue(":rg", $user->getRg());
-            $p_sql->bindValue(":phone", $user->getPhone());
+            $p_sql->bindValue(":name", $customer->getName());
+            $p_sql->bindValue(":date_of_birth", $customer->getDateOfBirth());
+            $p_sql->bindValue(":cpf", $customer->getCpf());
+            $p_sql->bindValue(":rg", $customer->getRg());
+            $p_sql->bindValue(":phone", $customer->getPhone());
 
             return $p_sql->execute();
         } catch (Exception $e) {
@@ -24,12 +24,12 @@ class UserRepository
     public function read()
     {
         try {
-            $sql = "SELECT * FROM user order by id asc";
+            $sql = "SELECT * FROM customer order by id asc";
             $result = DatabaseConnection::getInstance()->query($sql);
             $users = $result->fetchAll(PDO::FETCH_ASSOC);
             $list = [];
             foreach ($users as $user) {
-                $list[] = $this->userList($user);
+                $list[] = $this->customerList($user);
             }
             return $list;
         } catch (Exception $e) {
@@ -37,17 +37,17 @@ class UserRepository
         }
     }
 
-    public function update(User $user)
+    public function update(Customer $customer)
     {
         try {
-            $sql = "UPDATE user set name=:name, date_of_birth=:date_of_birth, cpf=:cpf, rg=:rg, phone=:phone WHERE id = :id";
+            $sql = "UPDATE customer set name=:name, date_of_birth=:date_of_birth, cpf=:cpf, rg=:rg, phone=:phone WHERE id = :id";
             $p_sql = DatabaseConnection::getInstance()->prepare($sql);
-            $p_sql->bindValue(":id", $user->getId());
-            $p_sql->bindValue(":name", $user->getName());
-            $p_sql->bindValue(":date_of_birth", $user->getDateOfBirth());
-            $p_sql->bindValue(":cpf", $user->getCpf());
-            $p_sql->bindValue(":rg", $user->getRg());
-            $p_sql->bindValue(":phone", $user->getPhone());
+            $p_sql->bindValue(":id", $customer->getId());
+            $p_sql->bindValue(":name", $customer->getName());
+            $p_sql->bindValue(":date_of_birth", $customer->getDateOfBirth());
+            $p_sql->bindValue(":cpf", $customer->getCpf());
+            $p_sql->bindValue(":rg", $customer->getRg());
+            $p_sql->bindValue(":phone", $customer->getPhone());
 
             return $p_sql->execute();
         } catch (Exception $e) {
@@ -55,25 +55,21 @@ class UserRepository
         }
     }
 
-    public function delete(User $user)
+    public function delete(Customer $customer)
     {
         try {
-            $sql = "DELETE FROM user WHERE id = :id";
+            $sql = "DELETE FROM customer WHERE id = :id";
             $p_sql = DatabaseConnection::getInstance()->prepare($sql);
-            $p_sql->bindValue(":id", $user->getId());
+            $p_sql->bindValue(":id", $customer->getId());
             return $p_sql->execute();
         } catch (Exception $e) {
             echo "Erro ao Excluir usuario<br> $e <br>";
         }
     }
-
-
-
-
-    private function userList($row)
+    private function customerList($row)
     {
 
-        $user = new User();
+        $user = new Customer();
 
         $user->setId($row["id"]);
         $user->setName($row["name"]);
