@@ -1,5 +1,4 @@
 <?php
-
 class UserRepository
 {
     public function create(User $user)
@@ -8,7 +7,7 @@ class UserRepository
             $sql = "INSERT INTO user (name,date_of_birth,cpf,rg,phone) 
                     VALUES (:name,:date_of_birth,:cpf,:rg,:phone)";
 
-            $p_sql = databaseConnection::getdatabaseConnection()->prepare($sql);
+            $p_sql = DatabaseConnection::getInstance()->prepare($sql);
 
             $p_sql->bindValue(":name", $user->getName());
             $p_sql->bindValue(":date_of_birth", $user->getDateOfBirth());
@@ -25,14 +24,14 @@ class UserRepository
     public function read()
     {
         try {
-            $sql = "SELECT * FROM user order by name asc";
-            $result = databaseConnection::getdatabaseConnection()->query($sql);
+            $sql = "SELECT * FROM user order by id asc";
+            $result = DatabaseConnection::getInstance()->query($sql);
             $users = $result->fetchAll(PDO::FETCH_ASSOC);
-            $usersList = array();
+            $list = [];
             foreach ($users as $user) {
-                $usersList[] = $this->listaUsuarios($user);
+                $list[] = $this->userList($user);
             }
-            return $usersList;
+            return $list;
         } catch (Exception $e) {
             print "Ocorreu um erro ao listar." . $e;
         }
@@ -41,22 +40,15 @@ class UserRepository
     public function update(User $user)
     {
         try {
-            $sql = "UPDATE user set
-                
-                  name=:name,
-                  date_of_birth=:date_of_birth,
-                  cpf=:cpf,
-                  rg=:rg,
-                  phone=:phone,                  
-                                                                       
-                  WHERE id = :id";
-            $p_sql = databaseConnection::getdatabaseConnection()->prepare($sql);
+            $sql = "UPDATE user set name=:name, date_of_birth=:date_of_birth, cpf=:cpf, rg=:rg, phone=:phone WHERE id = :id";
+            $p_sql = DatabaseConnection::getInstance()->prepare($sql);
             $p_sql->bindValue(":id", $user->getId());
             $p_sql->bindValue(":name", $user->getName());
             $p_sql->bindValue(":date_of_birth", $user->getDateOfBirth());
             $p_sql->bindValue(":cpf", $user->getCpf());
             $p_sql->bindValue(":rg", $user->getRg());
             $p_sql->bindValue(":phone", $user->getPhone());
+
             return $p_sql->execute();
         } catch (Exception $e) {
             print "Ocorreu um erro ao atualizar<br> $e <br>";
@@ -67,7 +59,7 @@ class UserRepository
     {
         try {
             $sql = "DELETE FROM user WHERE id = :id";
-            $p_sql = databaseConnection::getdatabaseConnection()->prepare($sql);
+            $p_sql = DatabaseConnection::getInstance()->prepare($sql);
             $p_sql->bindValue(":id", $user->getId());
             return $p_sql->execute();
         } catch (Exception $e) {
@@ -78,17 +70,17 @@ class UserRepository
 
 
 
-    private function listaUsuarios($row)
+    private function userList($row)
     {
-        $user = new User(
-            $row['id'],
-            $row['name'],
-            $row['date_of_birth'],
-            $row['cpf'],
-            $row['rg'],
-            $row['fone'],
-            '',
-        );
+
+        $user = new User();
+
+        $user->setId($row["id"]);
+        $user->setName($row["name"]);
+        $user->setDateOfBirth($row['date_of_birth']);
+        $user->setCpf($row['cpf']);
+        $user->setRg($row['rg']);
+        $user->setPhone($row['phone']);
 
         return $user;
     }
