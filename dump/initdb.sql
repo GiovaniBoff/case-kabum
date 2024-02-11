@@ -22,9 +22,7 @@ CREATE TABLE IF NOT EXISTS `address` (
   	`userId` int NOT NULL,
   	`public_place` VARCHAR(30),
   	`city` VARCHAR(30) NOT NULL,
-  	`neighborhood` VARCHAR(30) NOT NULL,
   	`number` VARCHAR(4) NOT NULL,
-  	`zipCode` VARCHAR(9) NOT NULL,
   	`uf` VARCHAR(2) NOT NULL
 );
 
