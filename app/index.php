@@ -1,3 +1,1 @@
-<?php
-    echo "Starting...";
- 
+<?php header('location: presentation/pages/user/read.php');
