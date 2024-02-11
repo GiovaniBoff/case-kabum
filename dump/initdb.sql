@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `user` (
     `date_of_birth` varchar(50) DEFAULT NULL, 
     `cpf` varchar(14) DEFAULT NULL, 
     `rg` varchar(9) DEFAULT NULL, 
-    `telefone` VARCHAR(10) DEFAULT NULL
+    `phone` VARCHAR(10) DEFAULT NULL
 );
 
 CREATE TABLE IF NOT EXISTS `address` (
