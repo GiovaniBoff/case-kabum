@@ -10,17 +10,6 @@ class User
     private $phone;
     private $adress;
 
-
-    public function __construct($id, $name, $dateOfBirth, $cpf, $rg, $phone, $adress)
-    {
-        $this->id = $id;
-        $this->name = $name;
-        $this->dateOfBirth = $dateOfBirth;
-        $this->cpf = $cpf;
-        $this->rg = $rg;
-        $this->phone = $phone;
-        $this->adress = $adress;
-    }
     function getId()
     {
         return $this->id;
