@@ -13,7 +13,7 @@ class UpdateUser
         $user->setDateOfBirth($input["date_of_birth"]);
         $user->setCpf($input["cpf"]);
         $user->setRg($input["rg"]);
-        // $user->setPhone($input["phone"]);
+        $user->setPhone($input["phone"]);
         $user->setId($input["id"]);
 
         return $repository->update($user);

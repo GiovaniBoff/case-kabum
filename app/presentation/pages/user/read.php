@@ -46,10 +46,9 @@ require_once '../partials/header.php';
 								<button class="btn  btn-danger btn-sm" type="button">Excluir</button>
 							</a>
 						</td>
-
-						<?php require_once './edit.php' ?>
-					<?php endforeach ?>
-				</tr>
+					</tr>
+					<?php require './edit.php' ?>
+				<?php endforeach ?>
 			</tbody>
 		</table>
 	</div>
