@@ -1,1 +1,1 @@
-<?php header('location: presentation/pages/customer/read.php');
+<?php header('location: presentation/pages/user/login.php');

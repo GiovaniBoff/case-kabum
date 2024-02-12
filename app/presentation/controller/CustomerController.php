@@ -23,21 +23,21 @@ if (isset($_POST['cadastrar'])) {
 
     $createCustomer->create($input);
 
-    header("Location: ../../");
+    header("Location: ../pages/customer/read.php");
 }
 // se a requisição for editar
 else if (isset($_POST['editar'])) {
 
     $updateCustomer->update($input);
 
-    header("Location: ../../");
+    header("Location: ../pages/customer/read.php");
 }
 // se a requisição for deletar
 else if (isset($_GET['del'])) {
 
     $deleteCustomer->delete($_GET['del']);
 
-    header("Location: ../../");
+    header("Location: ../pages/customer/read.php");
 } else {
-    header("Location: ../../");
+    header("Location: ../pages/customer/read.php");
 }

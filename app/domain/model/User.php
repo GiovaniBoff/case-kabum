@@ -1,10 +1,12 @@
 <?php
 
-class UserAuth
+class User
 {
     private $id;
     private $username;
     private $password;
+
+    private $token;
 
 
     function getId()
@@ -22,6 +24,11 @@ class UserAuth
         return $this->password;
     }
 
+    function getToken()
+    {
+        return $this->token;
+    }
+
     function setId($id)
     {
         $this->id = $id;
@@ -37,6 +44,10 @@ class UserAuth
         $this->password = $password;
     }
 
+    function setToken($token)
+    {
+        $this->token = $token;
+    }
 
 
 }

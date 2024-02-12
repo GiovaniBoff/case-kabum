@@ -1,5 +1,5 @@
 <?php
-define('ROOT_PATH', dirname(__FILE__));
+session_start();
 require_once "../../../config/DatabaseConfig.php";
 include_once "../../../domain/model/Customer.php";
 include_once "../../../data/repository/CustomerRepository.php";

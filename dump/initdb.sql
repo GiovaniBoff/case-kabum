@@ -5,7 +5,8 @@
 CREATE TABLE IF NOT EXISTS `user` (
     `id` int  NOT NULL PRIMARY KEY AUTO_INCREMENT,
     `username` varchar(255) DEFAULT NULL, 
-    `password` varchar(50) DEFAULT NULL
+    `password` varchar(50) DEFAULT NULL,
+    `token` TEXT DEFAULT NULL
 );
 
 CREATE TABLE IF NOT EXISTS `customer` (
@@ -32,3 +33,5 @@ ALTER TABLE address
 --
 -- Informacoes para teste
 --
+
+INSERT INTO user (username,password) VALUES ("Admin","123");
