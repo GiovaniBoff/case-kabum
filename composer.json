@@ -1,0 +1,12 @@
+{
+    "name": "gio/case-kabum",
+    "require": {
+        "phpunit/phpunit": "^10.5"
+    },
+    "authors": [
+        {
+            "name": "Giovani Boff",
+            "email": "giovanisouza15@gmail.com"
+        }
+    ]
+}
