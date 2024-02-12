@@ -7,15 +7,15 @@ class UpdateCustomer
     public function update($input)
     {
         $repository = new CustomerRepository;
-        $user = new Customer;
+        $customer = new Customer;
 
-        $user->setName($input["name"]);
-        $user->setDateOfBirth($input["date_of_birth"]);
-        $user->setCpf($input["cpf"]);
-        $user->setRg($input["rg"]);
-        $user->setPhone($input["phone"]);
-        $user->setId($input["id"]);
+        $customer->setName($input["name"]);
+        $customer->setDateOfBirth($input["date_of_birth"]);
+        $customer->setCpf($input["cpf"]);
+        $customer->setRg($input["rg"]);
+        $customer->setPhone($input["phone"]);
+        $customer->setId($input["id"]);
 
-        return $repository->update($user);
+        return $repository->update($customer);
     }
 }

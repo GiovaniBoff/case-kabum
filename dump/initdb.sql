@@ -20,16 +20,14 @@ CREATE TABLE IF NOT EXISTS `customer` (
 CREATE TABLE IF NOT EXISTS `address` (
     `id` int NOT NULL PRIMARY KEY AUTO_INCREMENT,
   	`customerId` int NOT NULL,
-  	`street` VARCHAR(30),
-  	`city` VARCHAR(30) NOT NULL,
-  	`number` VARCHAR(4) NOT NULL,
-  	`uf` VARCHAR(2) NOT NULL
+  	`street` VARCHAR(255)
 );
 
 
 ALTER TABLE address
 	ADD CONSTRAINT fk_Customer_Address
-	FOREIGN KEY (customerId) REFERENCES user (id);
+	FOREIGN KEY (customerId) REFERENCES customer (id)
+    ON DELETE CASCADE;
 
 --
 -- Informacoes para teste

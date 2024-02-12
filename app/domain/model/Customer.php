@@ -40,6 +40,11 @@ class Customer
         return $this->phone;
     }
 
+    function getAddress()
+    {
+        return $this->adress;
+    }
+
 
     function setId($id)
     {
@@ -71,5 +76,10 @@ class Customer
         return $this->phone = $phone;
     }
 
+
+    function setAddress($adress)
+    {
+        $this->adress = $adress;
+    }
 
 }

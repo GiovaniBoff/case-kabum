@@ -1,5 +1,4 @@
 <?php
-// require_once 'app/data/repository/UserRepository.php';
 
 class CreateCustomer
 {
@@ -8,15 +7,20 @@ class CreateCustomer
     public function create($input)
     {
         $repository = new CustomerRepository;
-        $user = new Customer;
+        $createAddress = new CreateAddress;
+        $customer = new Customer;
 
-        $user->setName($input["name"]);
-        $user->setDateOfBirth($input["date_of_birth"]);
-        $user->setCpf($input["cpf"]);
-        $user->setRg($input["rg"]);
-        $user->setPhone($input["phone"]);
+        $customer->setName($input["name"]);
+        $customer->setDateOfBirth($input["date_of_birth"]);
+        $customer->setCpf($input["cpf"]);
+        $customer->setRg($input["rg"]);
+        $customer->setPhone($input["phone"]);
 
-        return $repository->create($user);
+        $customerCreated = $repository->create($customer);
+
+        $createAddress->create($input, $customerCreated);
+
+        return $customerCreated;
     }
 
 }

@@ -1,7 +1,10 @@
 <?php
 require_once "../../config/DatabaseConfig.php";
 require_once "../../domain/model/Customer.php";
+require_once "../../domain/model/Address.php";
 require_once "../../data/repository/CustomerRepository.php";
+require_once "../../data/repository/AddressRepository.php";
+require_once "../../data/usecase/address/CreateAddress.php";
 require_once "../../data/usecase/customer/CreateCustomer.php";
 require_once "../../data/usecase/customer/ReadCustomer.php";
 require_once "../../data/usecase/customer/UpdateCustomer.php";

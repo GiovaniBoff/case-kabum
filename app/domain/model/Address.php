@@ -3,9 +3,6 @@ class Address
 {
     private $id;
     private $street;
-    private $city;
-    private $number;
-    private $uf;
 
     function getId()
     {
@@ -16,20 +13,6 @@ class Address
         return $this->street;
     }
 
-    function getCity()
-    {
-        return $this->city;
-    }
-
-    function getNumber()
-    {
-        return $this->number;
-    }
-
-    function getUf()
-    {
-        return $this->uf;
-    }
 
     function setId($id)
     {
@@ -41,18 +24,4 @@ class Address
         $this->street = $street;
     }
 
-    function setCity($city)
-    {
-        $this->city = $city;
-    }
-
-    function setNumber($number)
-    {
-        $this->number = $number;
-    }
-
-    function setUf($uf)
-    {
-        $this->uf = $uf;
-    }
 }

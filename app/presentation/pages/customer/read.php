@@ -2,8 +2,17 @@
 require_once '../partials/header.php';
 ?>
 <div class="container">
+
 	<?php require_once './create.php' ?>
 	<div class="table-responsive">
+		<nav class="navbar navbar-light bg-light menu">
+			<div class="container">
+				<a class="navbar-brand" href="#">
+					Gerencie Clientes
+				</a>
+				<button class="btn btn-primary" data-toggle="modal" data-target="#cadastrar">Cadastrar</button>
+			</div>
+		</nav>
 		<table class="table table-sm table-bordered table-hover">
 			<thead>
 				<tr>
@@ -13,6 +22,8 @@ require_once '../partials/header.php';
 					<th>CPF</th>
 					<th>RG</th>
 					<th>Telefone</th>
+					<th>Endereços</th>
+					<th>Ações</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -36,6 +47,9 @@ require_once '../partials/header.php';
 						</td>
 						<td>
 							<?= $customer->getPhone() ?>
+						</td>
+						<td>
+							<?= $customer->getAddress() ?>
 						</td>
 						<td class="text-center">
 							<button class="btn  btn-warning btn-sm" data-toggle="modal"

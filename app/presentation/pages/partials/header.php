@@ -3,6 +3,8 @@ define('ROOT_PATH', dirname(__FILE__));
 require_once "../../../config/DatabaseConfig.php";
 include_once "../../../domain/model/Customer.php";
 include_once "../../../data/repository/CustomerRepository.php";
+include_once "../../../data/repository/AddressRepository.php";
+include_once "../../../data/usecase/address/CreateAddress.php";
 include_once "../../../data/usecase/customer/ReadCustomer.php";
 include_once "../../../data/usecase/customer/CreateCustomer.php";
 include_once "../../../data/usecase/customer/UpdateCustomer.php";

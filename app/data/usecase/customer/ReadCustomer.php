@@ -7,7 +7,7 @@ class ReadCustomer
     public function read()
     {
         $repository = new CustomerRepository();
-        $list_of_users = $repository->read();
+        $list_of_users = $repository->find();
         return $list_of_users;
     }
 }
