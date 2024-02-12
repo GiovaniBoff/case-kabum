@@ -45,14 +45,14 @@ Subindo os containers:
  docker-composer up -d ou docker compose up -d
 ```
 
-## ⚙️ Executando os testes
+<!-- ## ⚙️ Executando os testes
 
 Explicar como executar os testes automatizados para este sistema.
 
 Para rodar os testes unitarios da aplicação, rode o seguinte comando:
 ```
  composer test
-```
+``` -->
 
 ## 🛠️ Construído com
 
